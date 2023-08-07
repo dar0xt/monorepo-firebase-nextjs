@@ -1,0 +1,16 @@
+{
+  "name": "shared",
+  "version": "1.0.0",
+  "main": "build/index.js",
+  "private": true,
+  "engines": {
+    "node": "18"
+  },
+  "packageManager": "npm@9.8.1",
+  "scripts": {
+    "build": "tsc -d",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "npm run lint && prettier --write ./src/**/*.ts"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "emulators",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "firebase emulators:start"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "packageManager": "npm@9.8.1",
+  "license": "MIT",
+  "devDependencies": {}
+}

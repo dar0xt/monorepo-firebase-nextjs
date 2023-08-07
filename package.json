@@ -1,0 +1,29 @@
+{
+  "name": "monorepo-firebase-nextjs",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "lint": "npm run lint -w functions -w shared -w web",
+    "lint:fix": "npm run lint:fix -w functions -w shared -w web"
+  },
+  "author": "",
+  "license": "MIT",
+  "workspaces": [
+    "packages/web",
+    "packages/functions",
+    "packages/generators",
+    "packages/shared",
+    "packages/emulators"
+  ],
+  "devDependencies": {
+    "@types/jest": "^29.5.3",
+    "firebase-tools": "^12.4.7",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "jest": "^29.6.2",
+    "ts-jest": "^29.1.1"
+  }
+}

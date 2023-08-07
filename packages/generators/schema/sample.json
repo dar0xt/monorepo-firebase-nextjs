@@ -1,0 +1,48 @@
+{
+  "$schema": "./schema.json",
+  "feature": {
+    "name": "sample"
+  },
+  "attributes": [
+    {
+      "name": "sampleId",
+      "type": "string",
+      "nullable": false
+    },
+    {
+      "name": "sampleName",
+      "type": "string",
+      "nullable": false
+    },
+    {
+      "name": "sampleNumber",
+      "type": "number",
+      "nullable": false
+    },
+    {
+      "name": "sampleInteger",
+      "type": "integer",
+      "nullable": false
+    },
+    {
+      "name": "sampleBoolean",
+      "type": "boolean",
+      "nullable": false
+    },
+    {
+      "name": "sampleNullableString",
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "createdAt",
+      "type": "date",
+      "nullable": false
+    },
+    {
+      "name": "updatedAt",
+      "type": "date",
+      "nullable": false
+    }
+  ]
+}

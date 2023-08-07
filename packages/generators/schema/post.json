@@ -1,0 +1,33 @@
+{
+  "$schema": "./schema.json",
+  "feature": {
+    "name": "post"
+  },
+  "attributes": [
+    {
+      "name": "postId",
+      "type": "string",
+      "nullable": false
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "nullable": false
+    },
+    {
+      "name": "content",
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "createdAt",
+      "type": "date",
+      "nullable": false
+    },
+    {
+      "name": "updatedAt",
+      "type": "date",
+      "nullable": false
+    }
+  ]
+}

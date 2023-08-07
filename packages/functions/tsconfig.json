@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "build",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2022",
+    "experimentalDecorators": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "compileOnSave": true,
+  "include": ["src", "env.d.ts"]
+}

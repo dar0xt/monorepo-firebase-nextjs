@@ -14,15 +14,17 @@ export class {{pascalCase featureName}}Service {
   ) {}
 
   async get({{camelCase featureName}}Id: string) {
-    const snapShot = await this.firestore.{{camelCase featureName}}.collection.doc({{camelCase featureName}}Id).get()
-    const data = snapShot.data()
-    return data ? { ...data, {{camelCase featureName}}Id: snapShot.id } : null
+    const snapshot = await this.firestore.{{camelCase featureName}}.collection.doc({{camelCase featureName}}Id).get()
+    const data = snapshot.data()
+    return data ? { ...data, {{camelCase featureName}}Id: snapshot.id } : null
   }
+
   async getAll() {
-    const snapShot = await this.firestore.{{camelCase featureName}}.collection.get()
-    const data = snapShot.docs.map((doc) => ({...doc.data(), {{camelCase featureName}}Id: doc.id}))
+    const snapshot = await this.firestore.{{camelCase featureName}}.collection.get()
+    const data = snapshot.docs.map((doc) => ({...doc.data(), {{camelCase featureName}}Id: doc.id}))
     return data 
   }
+
   async create(dto: Create{{pascalCase featureName}}DTO) {
     const createdAt = new Date()
     const updatedAt = new Date()
@@ -36,6 +38,7 @@ export class {{pascalCase featureName}}Service {
       {{camelCase featureName}}Id: ref.id,
     }
   }
+
   async update(dto: Update{{pascalCase featureName}}DTO) {
     const updatedAt = new Date()
     await this.firestore.{{camelCase featureName}}.collection.doc(dto.{{camelCase featureName}}Id).update({
@@ -44,6 +47,7 @@ export class {{pascalCase featureName}}Service {
     })
     return
   }
+  
   async delete({{camelCase featureName}}Id: string) {
     await this.firestore.{{camelCase featureName}}.collection.doc({{camelCase featureName}}Id).delete()
     return

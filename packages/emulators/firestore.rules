@@ -13,7 +13,7 @@ service cloud.firestore {
     // all client requests to your Firestore database will be denied until you Update
     // your rules
     match /{document=**} {
-      allow read, write: false
+      allow read, write: if false
     }
   }
 }

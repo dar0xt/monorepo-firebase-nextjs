@@ -9,6 +9,7 @@ import { generateFunctionsFirestoreCollection } from './functions/infrastructure
 import { generateFunctionsIoc } from './functions/ioc'
 import { generateFunctionsDTO } from './functions/service/feature/feature.dto'
 import { generateFunctionsService } from './functions/service/feature/feature.service'
+import { generateFunctionsServiceTest } from './functions/service/feature/feature.service.test'
 import { generateSharedFunctionKeys } from './shared/functionKeys'
 import { generateInterfacesIndex as generateSharedInterfacesIndex } from './shared/interface'
 import { generateInterfacesValidationIndex as generateSharedInterfacesValidationIndex } from './shared/interface/feature'
@@ -42,6 +43,7 @@ export default function run(plop: NodePlopAPI) {
         generateFunctionsModel(plop, featureName, attributes),
         generateFunctionsDTO(plop, featureName, attributes),
         generateFunctionsService(plop, featureName),
+        generateFunctionsServiceTest(plop, featureName, attributes),
         generateFunctionsFirestoreCollection(plop, featureName, attributes),
         generateFunctionsFirebaseFirestore(featureName),
         // /* shared */

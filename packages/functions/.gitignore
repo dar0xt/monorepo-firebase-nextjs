@@ -13,3 +13,5 @@ build
 .env
 .env.local
 .env.production
+
+firebase-debug.log

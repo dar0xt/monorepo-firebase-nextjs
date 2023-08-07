@@ -47,7 +47,7 @@ The code in `/shared` provides type definitions and validations for xxx that can
 
 ## Directory Structure
 
-\```
+```tree
 .
 ├── README.md
 └───packages
@@ -56,7 +56,7 @@ The code in `/shared` provides type definitions and validations for xxx that can
 ├── generators (Code generator)
 ├── shared (Code shared between frontend and backend)
 └── web (Frontend code)
-\```
+```
 
 ## About Used Libraries (Selected)
 

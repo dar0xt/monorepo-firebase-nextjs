@@ -61,6 +61,9 @@ const getUpdateArgs = (
     if (camelCaseFeatureNameId === camelCaseAttributeName) {
       return `${camelCaseFeatureNameId}: string`
     }
+    if (['createdAt', 'updatedAt'].includes(camelCaseFeatureName)) {
+      return ''
+    }
 
     switch (type) {
       case 'integer':

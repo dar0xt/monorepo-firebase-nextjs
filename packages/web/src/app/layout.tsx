@@ -19,13 +19,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <FirebaseProvider>
-          <TanStackProvider>
+        <TanStackProvider>
+          <FirebaseProvider>
             <MuiProvider>
               <ReactToastifyProvider>{children}</ReactToastifyProvider>
             </MuiProvider>
-          </TanStackProvider>
-        </FirebaseProvider>
+          </FirebaseProvider>
+        </TanStackProvider>
       </body>
     </html>
   )

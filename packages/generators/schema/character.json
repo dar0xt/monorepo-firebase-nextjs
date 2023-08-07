@@ -1,0 +1,43 @@
+{
+  "$schema": "./schema.json",
+  "feature": {
+    "name": "character"
+  },
+  "attributes": [
+    {
+      "name": "characterId",
+      "type": "string",
+      "nullable": false
+    },
+    {
+      "name": "numberId",
+      "type": "integer",
+      "nullable": false
+    },
+    {
+      "name": "name",
+      "type": "integer",
+      "nullable": false
+    },
+    {
+      "name": "imageUrl",
+      "type": "integer",
+      "nullable": false
+    },
+    {
+      "name": "description",
+      "type": "integer",
+      "nullable": false
+    },
+    {
+      "name": "createdAt",
+      "type": "date",
+      "nullable": false
+    },
+    {
+      "name": "updatedAt",
+      "type": "date",
+      "nullable": false
+    }
+  ]
+}

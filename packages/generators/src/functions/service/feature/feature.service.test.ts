@@ -1,7 +1,7 @@
-import * as changeCase from "change-case"
-import { ActionType, NodePlopAPI } from "plop"
-import { plural } from "pluralize"
-import { Attribute } from "../../../type"
+import * as changeCase from 'change-case'
+import { ActionType, NodePlopAPI } from 'plop'
+import { plural } from 'pluralize'
+import { Attribute } from '../../../type'
 
 const getTemplate = (featureName: string, attributes: Attribute[]): string => {
   return `
@@ -12,8 +12,6 @@ describe("{{pascalCase featureName}}Service", () => {
   const service = container.resolve({{pascalCase featureName}}Service)
   const mockCreateInput = {
     ${getMockCreateInput(featureName, attributes)}
-    title: "test",
-    content: "test content",
   }
 
   it("should get a {{camelCase featureName}}", async () => {
@@ -43,8 +41,6 @@ describe("{{pascalCase featureName}}Service", () => {
     const created = await service.create(mockCreateInput)
     const updateValues = {
       ${getUpdateValues(featureName, attributes)}
-      title: "updated content",
-      content: "updated content",
     }
     await service.update({
       {{camelCase featureName}}Id: created.{{camelCase featureName}}Id,
@@ -78,27 +74,27 @@ const getMockCreateInput = (
   const items = attributes.map(({ name, type }) => {
     const camelCaseFeatureName = changeCase.camelCase(name)
     if (
-      [camelCaseFeatureNameId, "createdAt", "updatedAt"].includes(
+      [camelCaseFeatureNameId, 'createdAt', 'updatedAt'].includes(
         camelCaseFeatureName
       )
     ) {
-      return ""
+      return ''
     }
     switch (type) {
-      case "integer":
-      case "number":
-        return `${name}: 1`
-      case "date":
-        return `${name}: new Date()`
-      case "boolean":
-        return `${name}: true`
-      case "string":
-        return `${name}: "${name}"`
+      case 'integer':
+      case 'number':
+        return `${name}: 1,`
+      case 'date':
+        return `${name}: new Date(),`
+      case 'boolean':
+        return `${name}: true,`
+      case 'string':
+        return `${name}: "${name}",`
       default:
-        throw Error("not implemented")
+        throw Error('not implemented')
     }
   })
-  return items.join("\n")
+  return items.join('\n')
 }
 
 const getUpdateValues = (
@@ -110,38 +106,38 @@ const getUpdateValues = (
   const items = attributes.map(({ name, type }) => {
     const camelCaseFeatureName = changeCase.camelCase(name)
     if (
-      [camelCaseFeatureNameId, "createdAt", "updatedAt"].includes(
+      [camelCaseFeatureNameId, 'createdAt', 'updatedAt'].includes(
         camelCaseFeatureName
       )
     ) {
-      return ""
+      return ''
     }
     switch (type) {
-      case "integer":
-      case "number":
-        return `${name}: 2`
-      case "date":
-        return `${name}: new Date()`
-      case "boolean":
-        return `${name}: false`
-      case "string":
-        return `${name}: \`updated $\{${name}}\``
+      case 'integer':
+      case 'number':
+        return `${name}: 2,`
+      case 'date':
+        return `${name}: new Date(),`
+      case 'boolean':
+        return `${name}: false,`
+      case 'string':
+        return `${name}: "updated ${name}",`
       default:
-        throw Error("not implemented")
+        throw Error('not implemented')
     }
   })
-  return items.join("\n")
+  return items.join('\n')
 }
 
 const getAction = (featureName: string): ActionType => {
   const featureNamePluralize = plural(featureName)
   const data = { featureName, featureNamePluralize }
   return {
-    type: "add",
+    type: 'add',
     data,
-    path: "./../../functions/src/service/{{camelCase featureName}}/{{ camelCase featureName }}.service.test.ts",
+    path: './../../functions/src/service/{{camelCase featureName}}/{{ camelCase featureName }}.service.test.ts',
     templateFile:
-      "../src/functions/service/feature/feature.service.test.ts.hbs",
+      '../src/functions/service/feature/feature.service.test.ts.hbs',
   }
 }
 
@@ -151,7 +147,7 @@ export const generateFunctionsServiceTest = (
   attributes: Attribute[]
 ): ActionType => {
   plop.setPartial(
-    "functions.service.feature.service.test",
+    'functions.service.feature.service.test',
     getTemplate(featureName, attributes)
   )
   return getAction(featureName)

@@ -9,6 +9,7 @@
   "packageManager": "npm@9.8.1",
   "scripts": {
     "build": "tsc -d",
+    "build:watch": "npm run build -- --watch",
     "lint": "eslint . --ext .ts",
     "lint:fix": "npm run lint && prettier --write ./src/**/*.ts"
   },

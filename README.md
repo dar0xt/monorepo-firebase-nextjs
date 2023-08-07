@@ -1,78 +1,82 @@
-# プロジェクト名
+# Monorepo-Firebase-Nextjs
 
-プロジェクトの簡単な説明。
+[日本語はこちら](https://github.com/dar0xt/monorepo-firebase-nextjs/blob/main/README-ja.md)
 
-## はじめに
+## Introduction
 
-Firebase FunctionsのCRUDコードジェネレーターを備えたモノレポのテンプレートです。  
-jsonファイルで定義したスキーマから、フロントエンド、バックエンドで共有可能なTypeScriptの型定義とFirebase Functionsのコードを自動生成します。  
-また、Firebase Hosting Frameworksを利用したNext.jsのHosting環境も構築しています。
+This is a monorepo template equipped with a NestJS-like CRUD code generator for Firebase Functions.  
+From a schema defined in a json file, it automatically generates TypeScript type definitions that can be shared in both frontend and backend, as well as code for Firebase Functions.  
+Additionally, a hosting environment using Firebase Hosting Frameworks for Next.js is set up.
 
-## インストール
+## Installation
 
 ```zsh
-git clone https://github.com/dar0xt/monorepo-firebase-nextjs
+git clone <https://github.com/dar0xt/monorepo-firebase-nextjs>
 cd monorepo-firebase-nextjs
 npm i
 ```
 
-## 環境構築
+## Environment Setup
 
-1. フロントエンド(/web)、バックエンド(/functions)ともに.envに環境変数を入力する。
-2. /emulators, /functions, /webにおいて、.firebasercのプロジェクト名を入力する。
+1. Enter environment variables in `.env` for both frontend (`/web`) and backend (`/functions`).
+2. For `/emulators`, `/functions`, and `/web`, enter the firebase project name in `.firebaserc`.
 
-## コード生成の使い方
+## How to Use Code Generation
 
-xxxはuserやpostなどのようなドメイン名を想定しています。
+"xxx" is assumed to be a domain name like "user" or "post".
 
-1. `/packages/generators/xxx.json`にスキーマを定義する
-2. `npm run generate`でコードを生成する
+1. Define a schema in `/packages/generators/xxx.json`.
+2. Run the command:
 
-## 生成されるコード
+```zsh
+npm run generate
+```
 
-- xxx.controller.ts (/functions)
-- xxx.dto.ts (/functions)
-- xxx.service.ts (/functions)
-- xxx.model.ts (/functions)
-- xxx.collection.ts (/functions)
-- xxx.validation.ts (/shared)
+## Generated Code
 
-/functionsに生成されるコードは、xxxのCRUDを行うためのコードです。  
-/sharedに生成されるコードは、フロントエンドとバックエンドから参照可能なxxxの型定義とバリデーションのためのコードです。
+- `xxx.controller.ts` (/functions)
+- `xxx.dto.ts` (/functions)
+- `xxx.service.ts` (/functions)
+- `xxx.service.test.ts` (/functions)
+- `xxx.model.ts` (/functions)
+- `xxx.collection.ts` (/functions)
+- `xxx.validation.ts` (/shared)
 
-## ディレクトリ構成
+The code generated in `/functions` provides CRUD operations for xxx.  
+The code in `/shared` provides type definitions and validations for xxx that can be referenced from both frontend and backend.
 
-```tree
+## Directory Structure
+
+\```
 .
 ├── README.md
 └───packages
-    ├── emulators (ローカルでFirebaseのエミュレーターを起動するためのコード)
-    ├── functions (Firebase Functionsのコード)
-    ├── generators (コードジェネレーター)
-    ├── shared (フロントエンドとバックエンドで共有するコード)
-    └── web (フロントエンドのコード)
-```
+├── emulators (Code to start Firebase emulator locally)
+├── functions (Code for Firebase Functions)
+├── generators (Code generator)
+├── shared (Code shared between frontend and backend)
+└── web (Frontend code)
+\```
 
-## 使用ライブラリ(抜粋)
+## About Used Libraries (Selected)
 
 /functions
 
-- tsyringe: 依存性注入ライブラリを用いて、コードをテストしやすくする。
-- esbuild: 高速なビルドツール
+- **tsyringe**: A dependency injection library making code testing easier.
+- **esbuild**: Fast build tool.
 
 /generators
 
-- plop: テンプレート(.hbs)からコードを自動生成する。
+- **plop**: Generates code from templates (.hbs).
 
 /shared
 
-- zod: アプリケーション全体のバリデーションを担う。functionsのRequestおよびResponseのバリデーションと、型生成に利用する。
+- **zod**: Responsible for overall application validation. Used for functions' Request and Response validation, and for type generation.
 
 /web
 
-- next: Next.js 13でAppRouterを使用
+- **next**: Using AppRouter in Next.js 13.
 
-## お問い合わせ
+## Contact
 
-不明点等ございましたら、[Twitter](https://twitter.com/conaxam)までお問い合わせください。
-PRもお待ちしております。
+If you have any questions or clarifications, please [contact on Twitter](https://twitter.com/conaxam). PRs are also welcome.
